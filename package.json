@@ -1,0 +1,28 @@
+{
+  "name": "not-electron-builder",
+  "version": "0.0.0",
+  "description": "Publish your electron app without Electron. Whaaat!?",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "electron",
+    "webapp",
+    "build",
+    "publish",
+    "desktop"
+  ],
+  "author": "benzaria",
+  "license": "MIT",
+  "packageManager": "pnpm@10.5.2",
+  "devDependencies": {
+    "@types/node": "^22.15.18",
+    "esbuild": "^0.25.4",
+    "eslint": "^9.26.0",
+    "typescript": "^5.8.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

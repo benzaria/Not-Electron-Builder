@@ -1,0 +1,21 @@
+
+### FLAGES ###
+\!*
+__*
+
+### CUSTOM ###
+.history/
+.dep/
+
+### DIRECTORIES ###
+node_modules/
+publish/
+dist/
+out/
+
+### FILES ###
+# *lock*
+*secret*
+*cred*
+*.env
+
