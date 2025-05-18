@@ -4,6 +4,8 @@
 __*
 
 ### CUSTOM ###
+artifact/
+electron/
 .history/
 .dep/
 

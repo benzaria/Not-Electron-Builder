@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "usernamehw.errorlens",
+        "dbaeumer.vscode-eslint",
+        "YoavBls.pretty-ts-errors",
+        "aaron-bond.better-comments",
+        "oouo-diogo-perdigao.docthis",
+        "Orta.vscode-twoslash-queries",
+    ]
+}

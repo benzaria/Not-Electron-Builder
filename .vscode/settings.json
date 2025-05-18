@@ -1,0 +1,22 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "node_modules": true,
+        "*.history": true,
+        "*.npmrc": true,
+        "*eslint*": false,
+        "*.md": true,
+        "*.sha256": true,
+        "hasher.ps1": true
+    },
+    "hide-files.files": [],
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    // "prettier.prettierPath": "node_modules/prettier",
+    // "prettier.configPath": "prettier.config.ts",
+}

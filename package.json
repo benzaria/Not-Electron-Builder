@@ -1,28 +1,97 @@
 {
-  "name": "not-electron-builder",
-  "version": "0.0.0",
-  "description": "Publish your electron app without Electron. Whaaat!?",
-  "main": "index.js",
-  "scripts": {},
-  "keywords": [
-    "electron",
-    "webapp",
-    "build",
-    "publish",
-    "desktop"
-  ],
-  "author": "benzaria",
-  "license": "MIT",
-  "packageManager": "pnpm@10.5.2",
-  "devDependencies": {
-    "@types/node": "^22.15.18",
-    "esbuild": "^0.25.4",
-    "eslint": "^9.26.0",
-    "typescript": "^5.8.3"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
-  }
+    "name": "not-electron-builder",
+    "version": "0.0.0",
+    "description": "Publish your electron app without Electron. Whaaat!?",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "prod:test": "pnpm helper prod-test",
+        "prod:push": "pnpm helper prod-push",
+        "predist": "pnpm clean dist",
+        "dist": "pnpm build && pnpm make",
+        "start:a": "tsx src/app",
+        "start:b": "tsx src/builder",
+        "watch": "cross-env dev=true pnpm compile:esbuild --watch",
+        "backup": "pnpm helper backup",
+        "test": "cross-env test=true pnpm dev",
+        "test:cjs": "cross-env test=true pnpm dev:cjs",
+        "dev": "pnpm build:dev && pnpm start",
+        "dev:cjs": "cross-env format=cjs pnpm dev",
+        "prebuild": "pnpm type-check && pnpm lint-check",
+        "build": "cross-env prod=true pnpm build:min",
+        "postbuild": "pwsh -nop hasher.ps1 out > .sha256",
+        "build:test": "cross-env test=true prod=true pnpm compile:esbuild",
+        "build:min": "cross-env prod=true pnpm compile:esbuild",
+        "build:dev": "cross-env dev=true pnpm compile:esbuild",
+        "build:terser": "pnpm compile:esbuild --terser",
+        "precompile:esbuild": "pnpm clean out",
+        "compile:esbuild": "tsx esbuild.config.ts",
+        "compile:tsc": "tsc",
+        "forge": "tsx forge.config.ts",
+        "make": "tsx make.config.ts",
+        "clean": "pnpm helper clean",
+        "unzip": "pnpm helper unzip",
+        "helper": "pwsh -nop helper.ps1",
+        "type-check": "tsc --noEmit",
+        "lint-check": "eslint ./src"
+    },
+    "os": [
+        "darwin",
+        "win32",
+        "linux"
+    ],
+    "devEngines": {
+        "runtime": [
+            {
+                "name": "node",
+                "version": ">=22",
+                "onFail": "warn"
+            },
+            {
+                "name": "pnpm",
+                "version": ">=8",
+                "onFail": "warn"
+            }
+        ]
+    },
+    "author": "benzaria",
+    "email": "benzaria@users.noreply.github.com",
+    "homepage": "https://Med-GPT.github.io",
+    "repository": "github:Med-GPT/Med-GPT",
+    "license": "MIT",
+    "maintainers": [
+        "benzaria"
+    ],
+    "keywords": [
+        "electron",
+        "webapp",
+        "build",
+        "publish",
+        "desktop"
+    ],
+    "packageManager": "pnpm@10.5.2",
+    "devDependencies": {
+        "@benzn/to-ms": "^3.0.9",
+        "@electron/get": "^4.0.0",
+        "@eslint/js": "^9.27.0",
+        "@total-typescript/ts-reset": "^0.6.1",
+        "@types/node": "^22.15.18",
+        "@typescript-eslint/eslint-plugin": "^8.32.1",
+        "@typescript-eslint/parser": "^8.32.1",
+        "adm-zip": "^0.5.16",
+        "chokidar": "^4.0.3",
+        "cross-env": "^7.0.3",
+        "esbuild": "^0.25.4",
+        "eslint": "^9.26.0",
+        "fast-glob": "^3.3.3",
+        "globals": "^16.1.0",
+        "jiti": "^2.4.2",
+        "package-json": "^10.0.1",
+        "prettier": "^3.5.3",
+        "semver": "^7.7.2",
+        "string.chalk": "^1.2.0",
+        "tsup": "^8.5.0",
+        "type-fest": "^4.41.0",
+        "typescript": "^5.8.3"
+    }
 }

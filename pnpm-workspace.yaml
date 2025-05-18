@@ -1,0 +1,8 @@
+onlyBuiltDependencies:
+  - esbuild
+  - typescript
+
+gitChecks: true
+lockfile: true
+scriptShell: "pwsh -nop -c"
+enablePrePostScripts: true

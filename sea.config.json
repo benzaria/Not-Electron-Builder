@@ -1,0 +1,7 @@
+{
+    "useSnapshot": false,
+    "useCodeCache": false,
+    "main": "out/app.js",
+    "output": "make/app.blob",
+    "disableExperimentalSEAWarning": true
+}
